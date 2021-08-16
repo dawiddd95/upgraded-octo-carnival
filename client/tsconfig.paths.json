@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "paths":{
+            "@assets/*": ["./assets/*"],
+            "@atoms/*": ["./components/atoms/*"],
+            "@molecules/*": ["./components/molecules/*"],
+            "@organisms/*": ["./components/organisms/*"],
+            "@routes/*": ["./routes/*"],
+            "@templates/*": ["./templates/*"],
+            "@theme/*": ["./theme/*"],
+            "@utils/*": ["./utils/*"],
+            "@views/*": ["./views/*"],
+        }
+    }
+}
