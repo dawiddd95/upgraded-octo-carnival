@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import background from '@assets/images/background.png';
 
 const GlobalStyle = createGlobalStyle`
     *, *::before, *::after {
@@ -15,6 +16,8 @@ const GlobalStyle = createGlobalStyle`
     body {
         background-color: #24283C;
         font-size: 1.6rem;
+        background-image: url(${background});
+        background-size: cover;
     }
 `;
 

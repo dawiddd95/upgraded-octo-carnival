@@ -1,12 +1,6 @@
 export const theme = {
     colors: {
-        blackPrimary: '#131E07',
-        blackLighten: '#40462F',
-        blackFooter: '#7C8176',
-        lightFooter: '#E5E5E5',
-        silver: '#E5E5E5',
-        pink: '#FEF4E6',
-        orange: '#FABD20',
+        
     },
     fontSize: {
         xxs: '1.8rem',

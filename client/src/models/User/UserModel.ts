@@ -4,6 +4,7 @@ import UserCompanyModel, { IUserCompanyModel, IUserCompanyModelDTO } from '@mode
 import { AxiosRequestConfig } from 'axios';
 import { IHttpResponse, IHttpResponseList } from '@interfaces/HttpInterface';
 import { apiRequest } from '@services/ApiService';
+import { avatars } from '@utils/usersAvatars';
 
 const apiUrl = '/users';
 
@@ -25,6 +26,7 @@ export interface IUserModel extends IBaseModel {
   phone: string;
   website: string;
   company: IUserCompanyModel;
+  img: string
 
   serialize: () => IUserModelDTO;
 }
@@ -38,7 +40,8 @@ class UserModel extends BaseModel implements IUserModel {
     public address: IUserAddressModel,
     public phone: string,
     public website: string,
-    public company: IUserCompanyModel
+    public company: IUserCompanyModel,
+    public img: string
   ) {
     super(id);
   }
@@ -63,7 +66,8 @@ class UserModel extends BaseModel implements IUserModel {
       UserAddressModel.build(dto.address),
       dto.phone,
       dto.website,
-      UserCompanyModel.build(dto.company)
+      UserCompanyModel.build(dto.company),
+      avatars[dto.id-1]
     );
 
   static fetchUserList = (config: AxiosRequestConfig = {}): Promise<IHttpResponseList<IUserModelDTO>> =>
