@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 62.5%;
     }
     body {
-        background-color: #FEF4E6;
+        background-color: #24283C;
         font-size: 1.6rem;
     }
 `;
