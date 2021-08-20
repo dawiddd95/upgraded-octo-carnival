@@ -1,6 +1,7 @@
 export const theme = {
     colors: {
-        
+        white: '#F4F5F6',
+        gray: '#6A6D77'
     },
     fontSize: {
         xxs: '1.8rem',
@@ -9,10 +10,6 @@ export const theme = {
         m: '4rem',
         l: '5rem',
         xl: '8rem'
-    },
-    fontFamily: {
-        primary: 'Reem Kufi',
-        secondary: 'Rozha One',
     },
     fontWeight: {
         normal: 400

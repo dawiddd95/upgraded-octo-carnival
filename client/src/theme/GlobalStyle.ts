@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.6rem;
         background-image: url(${background});
         background-size: cover;
+        font-family: 'Roboto';
     }
 `;
 

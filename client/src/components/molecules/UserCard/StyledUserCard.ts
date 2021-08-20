@@ -43,8 +43,31 @@ export const OverlayWrapper = styled.div`
     }
 `
 
-export const InnerWrapper = styled.div`
+export const ContentWrapper = styled.div`
     position: absolute;
     color: black;
+    padding: 12rem 4rem 0 4rem;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+export const InnerWrapper = styled.div`
+    width: auto;
+    text-align: center;
+`
+
+export const AboutUserWrapper = styled.div`
+    max-width: 30rem;
+    margin-top: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 2px solid #343A4F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+export const ButtonWrapper = styled.div` 
+    margin: 2rem 0;
 `
