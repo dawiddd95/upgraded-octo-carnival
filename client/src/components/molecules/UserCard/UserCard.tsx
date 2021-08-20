@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { IUserModel } from '@models/User/UserModel';
 import * as S from './StyledUserCard';
 import { H2 } from '@atoms/H2/H2';
 import { Span } from '@atoms/Span/Span';
 import { Button } from '@atoms/Button/Button';
 import { theme } from '@theme/mainTheme';
-import rightArrow from '@assets/icons/right-arrow.svg';
+import { buildLink } from '@helpers/NavigationHelper';
+import { routes } from '@routes/index';
 
 interface IProps {
     user: IUserModel;
@@ -25,9 +27,9 @@ const UserCard = ({ user }: IProps): React.ReactElement => {
                             <Span>Working in {user.company.name} as {user.company.catchPhrase} in {user.address.city}</Span>
                         </S.AboutUserWrapper>
                         <S.ButtonWrapper>
-                            <Button>
-                                See more
-                            </Button>
+                            <Link to={buildLink(routes.userDetails, [{ key: ':userId', value: user.id }])} style={{textDecoration: 'none'}}>
+                                <Button>See more</Button>
+                            </Link>
                         </S.ButtonWrapper>
                     </S.InnerWrapper>
                 </S.ContentWrapper>
