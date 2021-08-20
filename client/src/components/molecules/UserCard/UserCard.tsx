@@ -5,13 +5,13 @@ import { H2 } from '@atoms/H2/H2';
 import { Span } from '@atoms/Span/Span';
 import { Button } from '@atoms/Button/Button';
 import { theme } from '@theme/mainTheme';
+import rightArrow from '@assets/icons/right-arrow.svg';
 
 interface IProps {
     user: IUserModel;
 }
 
 const UserCard = ({ user }: IProps): React.ReactElement => {
-    console.log(user)
     return (
         <S.Wrapper>
             <S.Avatar background={user.img} />
@@ -25,7 +25,9 @@ const UserCard = ({ user }: IProps): React.ReactElement => {
                             <Span>Working in {user.company.name} as {user.company.catchPhrase} in {user.address.city}</Span>
                         </S.AboutUserWrapper>
                         <S.ButtonWrapper>
-                            <Button>See more</Button>
+                            <Button>
+                                See more
+                            </Button>
                         </S.ButtonWrapper>
                     </S.InnerWrapper>
                 </S.ContentWrapper>

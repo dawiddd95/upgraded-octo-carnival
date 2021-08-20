@@ -70,4 +70,6 @@ export const AboutUserWrapper = styled.div`
 
 export const ButtonWrapper = styled.div` 
     margin: 2rem 0;
+    display: flex;
+    justify-content: center;
 `
