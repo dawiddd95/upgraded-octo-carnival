@@ -6,28 +6,33 @@ import { H2 } from '@atoms/H2/H2';
 import { Span } from '@atoms/Span/Span';
 import { Button } from '@atoms/Button/Button';
 import { theme } from '@theme/mainTheme';
-import { buildLink } from '@helpers/NavigationHelper';
-import { routes } from '@routes/index';
 
 interface IProps {
     user: IUserModel;
 }
 
 const UserCard = ({ user }: IProps): React.ReactElement => {
+    const { id, img, name, website, company, address } = user
+    const { name: companyName, catchPhrase: companyCatchPhrase } = company
+    const { city } = address
+
     return (
         <S.Wrapper>
-            <S.Avatar background={user.img} />
+            <S.Avatar background={img} />
             <S.OverlayWrapper>
                 <S.ContentWrapper>
                     <S.InnerWrapper>
-                        <H2>{user.name}</H2>
-                        <Span>{user.website}</Span>
+                        <H2>{name}</H2>
+                        <Span>{website}</Span>
                         <S.AboutUserWrapper>
                             <Span color={theme.colors.white}>About me:</Span>
-                            <Span>Working in {user.company.name} as {user.company.catchPhrase} in {user.address.city}</Span>
+                            <Span>Working in {companyName} as {companyCatchPhrase} in {address.city}</Span>
                         </S.AboutUserWrapper>
                         <S.ButtonWrapper>
-                            <Link to={buildLink(routes.userDetails, [{ key: ':userId', value: user.id }])} style={{textDecoration: 'none'}}>
+                            <Link 
+                                to={`/user/${id}`} 
+                                style={{textDecoration: 'none'}}
+                            >
                                 <Button>See more</Button>
                             </Link>
                         </S.ButtonWrapper>

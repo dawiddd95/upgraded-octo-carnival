@@ -1,0 +1,5 @@
+export enum PostListTypes {
+    POST_LIST = 'POST_LIST',
+    POST_LIST_SUCCESS = 'POST_LIST_SUCCESS',
+    POST_LIST_FAILURE = 'POST_LIST_FAILURE',
+}

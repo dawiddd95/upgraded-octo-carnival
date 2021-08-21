@@ -1,7 +1,8 @@
 export const theme = {
     colors: {
         white: '#F4F5F6',
-        gray: '#6A6D77'
+        gray: '#6A6D77',
+        indigo: '#0027c2'
     },
     fontSize: {
         xxs: '1.8rem',
