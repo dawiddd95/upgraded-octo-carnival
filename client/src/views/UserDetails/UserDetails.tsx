@@ -5,14 +5,16 @@ import { connect, useDispatch } from 'react-redux';
 import { IPostListOwnState } from '@redux/PostList/PostListInterfaces';
 import PostModel, { IPostModel } from '@models/Post/PostModel';
 import { PostListAction } from '@redux/PostList/PostListActions';
-// U mnie będzie to jako molekuła i inny sposób na form
-// import UserPostCreateForm from '@modules/User/routes/UserView/components/UserPostCreateForm';
 import { UserAction } from '@redux/User/UserActions';
 import { IUserOwnState } from '@redux/User/UserInterfaces';
 import { IUserModel } from '@models/User/UserModel';
 import Loader from '@atoms/Loader/Loader';
 import UserDetailsCard from '@organisms/UserDetailsCard/UserDetailsCard';
 import * as S from './StyledUserDetails'
+import { routes } from '@routes/index';
+import { buildLink } from '@helpers/NavigationHelper';
+import UserPostTile from '@molecules/UserPostTile/UserPostTile';
+import { H2 } from '@atoms/H2/H2';
 
 interface RouteParams {
     userId: string;
@@ -25,7 +27,7 @@ interface IProps extends RouteComponentProps<RouteParams> {
     isLoaded: boolean;
 }
 
-const UserDetails = ({ history, match, user, postList, isLoading, isLoaded }: IProps): React.ReactElement  => {
+const UserDetails = ({ match, user, postList, isLoading, isLoaded }: IProps): React.ReactElement  => {
     const dispatch = useDispatch();
   
     const loadUserData = React.useCallback(() => {
@@ -43,27 +45,6 @@ const UserDetails = ({ history, match, user, postList, isLoading, isLoaded }: IP
         loadUserPostListData();
     }, [loadUserData, loadUserPostListData]);
   
-    // To tutaj nie
-    // const showFormModal = (): void => {
-    //     setModalConfig({
-    //         isOpen: true,
-    //         onCloseAction: () => {
-    //         setModalConfig({
-    //             isOpen: false
-    //         });
-    //         }
-    //     });
-    // };
-  
-    // To tutaj nie
-    // const onCreateUserSuccess = (): void => {
-    //   if (modalConfig.onCloseAction) {
-    //     modalConfig.onCloseAction();
-    //   }
-  
-    //   loadUserPostListData();
-    // };
-  
     const removePost = async (postId: number): Promise<void> => {
       try {
         await PostModel.removePost(postId);
@@ -73,35 +54,25 @@ const UserDetails = ({ history, match, user, postList, isLoading, isLoaded }: IP
       }
     };
   
-    // const renderPostList = (postList: IPostModel[]) => (
-    //   <>
-    //     {postList.map((post) => (
-    //       <UserPostItem
-    //         key={post.id}
-    //         post={post}
-    //         postLink={buildLink(Paths.userPost, [
-    //           { key: ':userId', value: match.params.userId },
-    //           { key: ':postId', value: post.id }
-    //         ])}
-    //         removePostAction={removePost}
-    //       />
-    //     ))}
-    //   </>
-    // );
-
 
     return isLoading || !isLoaded 
         ? <Loader />
         : (
             <S.Wrapper>
                 <UserDetailsCard user={user} />
-              {/* <Header text={user.name} backButtonAction={() => history.goBack()} addButtonAction={() => showFormModal()} /> */}
-        
-              {/* {renderPostList(postList)} */}
-        
-              {/* <Modal {...modalConfig} title={'New post'}>
-                <UserPostCreateForm userId={user.id} onSuccessAction={onCreateUserSuccess} />
-              </Modal> */}
+                <S.PostsWrapper>
+                    <S.ContentWrapper>
+                        <H2>User Posts:</H2>
+                        {postList.map((post) => (
+                            <UserPostTile
+                                key={post.id}
+                                post={post}
+                                postLink={`/user/${match.params.userId}/post/${post.id}`}
+                                removePostAction={removePost}
+                            />
+                        ))}
+                    </S.ContentWrapper>
+                </S.PostsWrapper>
             </S.Wrapper>
         );
     

@@ -75,7 +75,7 @@ export const WebsiteWrapper = styled.div`
 export const UserWrapper = styled.div`
     position: relative;
     width: 100%;
-    height: 30rem;
+    height: 20rem;
 
     :before {
         content: '';

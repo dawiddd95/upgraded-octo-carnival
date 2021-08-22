@@ -59,9 +59,6 @@ const UserDetailsCard = ({ user }: IProps): React.ReactElement => {
                     <S.UserInnerWrapper>
                         <S.UserImg background={user.img} />
                     </S.UserInnerWrapper>
-                    <S.UserDetails>
-                        <H2>User Posts:</H2>
-                    </S.UserDetails>
                 </S.UserWrapper>
             </S.InnerWrapper>
         </S.Wrapper>
