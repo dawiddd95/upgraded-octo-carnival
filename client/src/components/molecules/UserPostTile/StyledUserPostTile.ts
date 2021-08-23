@@ -15,17 +15,19 @@ export const RemoveButton = styled.button`
   background: none;
   border: none;
   outline: none;
+  position: relative;
 `;
 
 export const PostTitle = styled.span`
-  padding-left: 17px;
+  margin-left: 1.7rem;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 1.4rem;
   position: relative;
-  bottom: 4px;
+  bottom: 0.4rem;
 `;
 
 export const ShowPostIcon = styled.span`
-  font-size: 30px;
+  font-size: 3rem;
   line-height: 0;
+  position: relative;
 `;

@@ -13,6 +13,7 @@ import PostCommentListModule from '@redux/PostCommentList/PostCommentListModule'
 import MainTemplate from '@templates/MainTemplate';
 import Homepage from '@views/Homepage/Homepage';
 import UserDetails from '@views/UserDetails/UserDetails';
+import PostDetails from '@views/PostDetails/PostDetails';
 
 const Root: React.FC = () => (
     <Provider store={store}>
@@ -22,6 +23,7 @@ const Root: React.FC = () => (
                     <Switch>
                         <Route exact path={routes.users} component={Homepage} />
                         <Route exact path={routes.userDetails} component={UserDetails} />
+                        <Route exact path={routes.userPost} component={PostDetails} />
                     </Switch>
                 </DynamicModuleLoader>
             </MainTemplate>

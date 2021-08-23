@@ -11,8 +11,6 @@ import { IUserModel } from '@models/User/UserModel';
 import Loader from '@atoms/Loader/Loader';
 import UserDetailsCard from '@organisms/UserDetailsCard/UserDetailsCard';
 import * as S from './StyledUserDetails'
-import { routes } from '@routes/index';
-import { buildLink } from '@helpers/NavigationHelper';
 import UserPostTile from '@molecules/UserPostTile/UserPostTile';
 import { H2 } from '@atoms/H2/H2';
 
